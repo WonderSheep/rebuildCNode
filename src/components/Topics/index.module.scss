@@ -1,0 +1,41 @@
+.topic {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .count {
+        width: 100px;
+        text-align: center;
+
+        span:first-child {
+            font-weight: bold;
+            font-size: 20px;
+            color: purple;
+        }
+
+        span:last-child {
+            color: grey;
+        }
+    }
+
+    .title {
+        width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis; //溢出的文本以省略号显示，需要和上面的overflow配合和和下面不允许换行配合
+        white-space: nowrap; //不允许换行
+        margin: 0;
+    }
+
+    .time {
+        width: 70px;
+        text-align: right;
+    }
+
+}
