@@ -11,7 +11,7 @@ function Home() {
 
     const [data, setData] = useState({
         page: 1,
-        limit: 20,
+        limit:20,
         list: [],
         store: {},//存储Tab对应的数据，因为切换Tab后就没必要重新以Limit:20加载数据了
         key: 'all'//当前Tab,声明在全局变量是为了滚动时相关函数也能获取得到
@@ -25,7 +25,6 @@ function Home() {
     const dataRef = useRef();
     useEffect(() => {
         dataRef.current = data;
-        console.log(dataRef.current);
     }, [data])
 
 
@@ -59,20 +58,18 @@ function Home() {
 
 
     const tabChanged = key => {
-        console.log(key);
         const store = data.store;
 
         if (!store[key]) {
             setData({
-                // ...state,
+                ...data,
                 key,
-                limit: 20,
+                limit:20,
                 list: []
                 //这里是为了其余分来的第一次加载
-            },
-                () => {
-                    showTopics();
-                })
+            });
+            showTopic();
+            return;
         }
 
         //如果已经存有数据了
@@ -84,7 +81,7 @@ function Home() {
         })
     }
 
-    const showTopic = throttle(showTopics, 1500)//限制频繁访问
+    const showTopic = throttle(showTopics, 500)//限制频繁访问
 
     useEffect(() => {
         showTopics();
@@ -125,23 +122,23 @@ function Home() {
                     {
                         label: '精华',
                         key: 'good',
-                        children: 'Tab 2',
+                        children: <Topics list={data.list}></Topics>,
 
                     },
                     {
                         label: '分享',
                         key: 'share',
-                        children: 'Tab 3',
+                        children: <Topics list={data.list}></Topics>,
                     },
                     {
                         label: '问答',
                         key: 'ask',
-                        children: 'Tab 3',
+                        children: <Topics list={data.list}></Topics>,
                     },
                     {
                         label: '工作',
                         key: 'job',
-                        children: 'Tab 3',
+                        children: <Topics list={data.list}></Topics>,
                     },
                 ]}
             />
