@@ -1,8 +1,12 @@
-import React from "react";
+import React , {useState,useEffect} from "react";
 
 function Profile(){
     
-    
+    const [loginName,setLoginName] = useState("");
+
+    useEffect(()=>{
+        setLoginName()
+    },[loginName])
     
     return (
         <div>
