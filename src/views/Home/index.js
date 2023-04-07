@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getTopics } from "../../utils/api";
 import style from "./index.module.scss"
 import { Tabs } from "antd";
-import Topics from '../../components/Topics'
+import Topics from '../../components/Topics';
+import throttle from "../../utils/throttle";
 
 
 
@@ -20,17 +21,27 @@ function Home() {
     const [list, setList] = useState([]);
 
     //更新数据的方法必须在useEffect调用，不然无法获取最新的setState
+    //setState的方法是异步的,只会在下次渲染时再调用,setState的回调可以写在useEffect里
+
 
     useEffect(() => {
 
-        getTopics({
-            page: data.page,
-            limit: data.limit,
-            tab: data.key
-        }).then((res) => {
-            console.log("成功");
-            setList(res.data)
-        })
+        //如果Effect里想调用异步函数async要在回调里
+
+        const show = async () => {
+            throttle(getTopics({
+                page: data.page,
+                limit: data.limit,
+                tab: data.key
+            }).then((res) => {
+                console.log("成功");
+                setList(res.data)
+            }), 1500)
+        };
+
+        show();
+
+        //节流，防止频繁访问
 
     }, [data])
 
@@ -55,13 +66,13 @@ function Home() {
             const sumH = document.body.scrollHeight || document.documentElement.scrollHeight
             const viewH = document.documentElement.clientHeight
             const scrollH = document.body.scrollTop || document.documentElement.scrollTop
-            
+
             if (Math.ceil(viewH + scrollH) >= sumH) {
-                
+
                 setData(prevState => {
                     return {
                         ...prevState,
-                        limit:prevState.limit + 10
+                        limit: prevState.limit + 10
                     }
                 })
             }
