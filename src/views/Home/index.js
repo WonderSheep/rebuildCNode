@@ -9,7 +9,6 @@ import throttle from "../../utils/throttle";
 
 function Home() {
 
-    console.log('Home刷新了');
 
     // console.log(props);
     const [data, setData] = useState({

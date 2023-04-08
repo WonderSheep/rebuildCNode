@@ -13,6 +13,10 @@ import moment from 'moment';
 import 'moment/locale/zh-cn'
 import "./assets/css/common.css"
 
+//redux toolkit
+import { Provider } from 'react-redux';
+import store from './store';
+
 
 //引用antd
 dayjs.locale('zh-cn')//antd用的
@@ -22,9 +26,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <ConfigProvider locale={zhCN}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </ConfigProvider>
 );
 
