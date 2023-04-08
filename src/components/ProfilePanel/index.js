@@ -4,6 +4,7 @@ import { Skeleton } from "antd";
 import style from "./index.module.scss"
 import { Link } from "react-router-dom";
 import moment from "moment";
+//引入redux的固定组件
 import { useSelector,useDispatch } from "react-redux";
 //引入redux中对应的方法
 import { setUser } from "../../store/festures/user";
@@ -16,6 +17,7 @@ function ProfilePanel({ loginname }) {
     const {user} = useSelector((store) => store.user);
     //通过useDispatch 派发事件
     const dispatch = useDispatch();
+
 
     useEffect(() => {
 

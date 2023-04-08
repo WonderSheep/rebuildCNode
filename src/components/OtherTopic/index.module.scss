@@ -1,0 +1,38 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    margin:20px 0;
+    header{
+        color:black;
+        font-weight: bold;
+    }
+    > div{
+        overflow: hidden;
+        text-overflow: ellipsis;//超出的文本以省略号表示
+        white-space: nowrap;
+        .time {
+            float: right;
+            color: #777;
+            font-size: 11px;
+        }
+        .insider_divider {
+            margin:10px 0;
+        }
+        .title{
+            margin-left: 20px;
+            text-decoration: none;
+            color: #42B983;
+        }
+    }
+    img {
+        width: 30px;
+        height: 30px;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+}
+.divider {
+    margin: 12px 0;
+}
