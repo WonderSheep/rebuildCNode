@@ -9,6 +9,7 @@ import throttle from "../../utils/throttle";
 
 function Home() {
 
+    console.log('Home刷新了');
 
     // console.log(props);
     const [data, setData] = useState({
@@ -28,18 +29,17 @@ function Home() {
 
         //如果Effect里想调用异步函数async要在回调里
 
-        const show = async () => {
+         (async () => {
             throttle(getTopics({
                 page: data.page,
                 limit: data.limit,
                 tab: data.key
             }).then((res) => {
-                console.log("成功");
+                // console.log(res);
                 setList(res.data)
             }), 1500)
-        };
-
-        show();
+        })();
+        
 
         //节流，防止频繁访问
 

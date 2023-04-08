@@ -11,6 +11,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import moment from 'moment';
 import 'moment/locale/zh-cn'
+import "./assets/css/common.css"
+
 
 //引用antd
 dayjs.locale('zh-cn')//antd用的

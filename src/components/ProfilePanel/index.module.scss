@@ -1,0 +1,38 @@
+.panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: black;
+    padding: 20px;
+    box-shadow: 0px 2px 12px 0 rgba(0, 0, 0, 0.1);
+    
+    > a {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        text-decoration: none;  
+    }
+
+    a{  
+        margin-left: 12px;
+        text-decoration: none;
+        color: #42B983;
+    }
+    .user{
+        margin-bottom: 10px;
+
+        .uniq{
+            color:black
+        }
+
+        img{
+            width: 48px;
+            height: 48px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+    }
+    div{
+        margin: 3px 0;
+    }
+}
