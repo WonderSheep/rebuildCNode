@@ -11,7 +11,7 @@
     > div{
         overflow: hidden;
         text-overflow: ellipsis;//超出的文本以省略号表示
-        white-space: nowrap;
+        white-space: nowrap;//不换行
         .time {
             float: right;
             color: #777;
@@ -20,6 +20,9 @@
         .insider_divider {
             margin:10px 0;
         }
+        .avatar {
+            margin-left: 5px;
+          }
         .title{
             margin-left: 20px;
             text-decoration: none;
@@ -30,7 +33,7 @@
         width: 30px;
         height: 30px;
         border-radius: 3px;
-        margin:0 5px;
+        margin-right: 5px;
     }
 }
 .divider {
