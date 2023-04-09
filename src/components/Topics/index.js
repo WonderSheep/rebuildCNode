@@ -23,7 +23,7 @@ function Topics({ list }) {
                 <Tag color={tab[item.tab] && tab[item.tab].color} >
                     {tab[item.tab] && tab[item.tab].name}
                 </Tag>
-                <Link className={style.title} to={'/topic'+item.id}>
+                <Link className={style.title} to={'/topic/'+item.id}>
                     {item.title}
                 </Link>
                 <span className={style.time}>
