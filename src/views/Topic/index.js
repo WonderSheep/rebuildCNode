@@ -74,7 +74,7 @@ function Topic(){
                             dangerouslySetInnerHTML={getHTML(topic.content)}
                         >
                         </div>
-                        <Reply></Reply>
+                        <Reply data={topic.replies}></Reply>
                     </div>
                     <div className={style.right}>
                         <ProfilePanel loginname={topic.loginname}></ProfilePanel>
