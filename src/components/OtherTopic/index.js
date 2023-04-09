@@ -20,7 +20,9 @@ function OtherTopic() {
                         {
                             user.recent_topics.map(item =>
                                 <div key={item.id}>
-                                    <img src={item.author && item.author.avatar_url} alt="头像" />
+                                    <Link to={'/user/' + item.author.loginname}>
+                                        <img src={item.author && item.author.avatar_url} alt="头像" />
+                                    </Link>
                                     <Link key={item.id} to={'/topic/' + item.id} className={style.title}>
                                         {item.title}
                                     </Link>
